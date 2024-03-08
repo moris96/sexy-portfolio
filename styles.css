@@ -72,12 +72,6 @@ body {
   transform: translateX(0);
 }
 
-.project {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 .project img {
   max-width: 200px;
   margin-right: 20px;
@@ -98,6 +92,212 @@ form button {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+/* Carousel Styles */
+.slider {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+  max-height: 100%;
+  max-width: 100%;
+  will-change: transform;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 900ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+/* .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 39%;
+  height: 50%;
+  line-height: 50%;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center;
+  transition: all 900ms ease-in-out;
+  transform-origin: center;
+  pointer-events: none;
+  will-change: transform;
+} */
+
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 39%;
+  height: 50%;
+  line-height: 50%;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center;
+  transition: all 900ms ease-in-out;
+  transform-origin: center;
+  /* Remove pointer-events: none; */
+}
+
+/* Add hover effect to make the buttons more interactive */
+.item:hover .btn {
+  transform: scale(1.1);
+}
+
+.item.item1 {
+  transform: rotateY(0deg) translateZ(500px);
+  background-position: 50% 0%;
+}
+
+.item.item1.active {
+  transform: rotateY(0deg) translateZ(250px);
+  opacity: 1;
+}
+
+.item.item2 {
+  transform: rotateY(120deg) translateZ(500px);
+}
+
+.item.item2.active {
+  transform: rotateY(120deg) translateZ(250px);
+  opacity: 1;
+}
+
+.item.item3 {
+  transform: rotateY(240deg) translateZ(550px);
+}
+
+.item.item3.active {
+  transform: rotateY(240deg) translateZ(250px);
+  opacity: 1;
+}
+
+.item__info {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  will-change: transform;
+}
+
+.item__year {
+  font-size: 30px;
+  letter-spacing: 3px;
+  margin-bottom: 35px;
+  overflow: hidden;
+  line-height: 30px;
+  will-change: transform;
+}
+
+.item__year span {
+  position: relative;
+  top: 27px;
+  transition: all 900ms linear;
+  display: inline-block;
+  transform: scale(0.7);
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.item__name {
+  font-size: 55px;
+  letter-spacing: 3px;
+  margin-bottom: 62px;
+  overflow: hidden;
+  line-height: 55px;
+  will-change: transform;
+}
+
+.item__name span {
+  position: relative;
+  top: 48px;
+  transition: all 900ms ease-in-out;
+  display: inline-block;
+  transform: scale(0.7);
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* .btn {
+  background: #fff;
+  color: #120d0b;
+  padding: 0 33px;
+  text-decoration: none;
+  display: inline-block;
+  transform: scale(0.7);
+  height: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 900ms ease-in-out;
+  will-change: transform;
+} */
+
+.btn {
+  background: #fff;
+  color: #120d0b;
+  padding: 10px 33px; /* Adjust padding as needed */
+  text-decoration: none;
+  display: inline-block;
+  /* Remove transform and height properties */
+  /* transform: scale(0.7); */
+  /* height: 0; */
+  position: relative;
+  /* Remove overflow property */
+  /* overflow: hidden; */
+  transition: all 900ms ease-in-out;
+  will-change: transform;
+}
+
+
+
+.btn span {
+  position: relative;
+  top: 16px;
+  will-change: transform;
+}
+
+.arrow {
+  background: #8e2037;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  transition: all .1s ease-in-out;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.arrow:hover {
+  transform: translateY(-50%) scale(1.1)
+}
+
+.arrow-next {
+  right: 5em;
+  background: url('https://alikinvv.github.io/3d-carousel/build/img/arrow-right.svg') no-repeat center #8e2037;
+  background-size: 38px !important;
+}
+
+.arrow-prev {
+  left: 5em;
+  background: url('https://alikinvv.github.io/3d-carousel/build/img/arrow-left.svg') no-repeat center #8e2037;
+  background-size: 38px !important;
 }
 
 @media (max-width: 768px) {
@@ -128,14 +328,17 @@ form button {
     display: flex;
   }
 
-  .project {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .project img {
     max-width: 100%;
     margin-right: 0;
     margin-bottom: 10px;
+  }
+
+  .arrow-next {
+    right: 1em;
+  }
+
+  .arrow-prev {
+    left: 1em;
   }
 }

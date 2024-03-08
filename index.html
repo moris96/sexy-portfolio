@@ -11,7 +11,7 @@
   <nav>
     <div class="navbar">
       <div class="logo">
-        <a href="#home">Your Logo</a>
+        <a href="#">Your Logo</a>
       </div>
       <div class="nav-links">
         <a href="#home" class="nav-link active">Home</a>
@@ -56,17 +56,35 @@
     <section id="projects" class="page">
       <!-- Projects section content -->
       <h2>Projects</h2>
-      <div class="project">
-        <img src="project1.jpg" alt="Project 1">
-        <h3>Project 1</h3>
-        <p>Description of Project 1.</p>
-      </div>
-      <div class="project">
-        <img src="project2.jpg" alt="Project 2">
-        <h3>Project 2</h3>
-        <p>Description of Project 2.</p>
+      <div class="slider">
+        <div class="wrapper">
+          <div style="background-image: url('https://moriskportfolio.netlify.app/img/floof-ecommerce.png')" class="item item1 active">
+            <div class="item__info">
+              <p class="item__year"><span>2023</span></p>
+              <p class="item__name"><span>Floof Ecommerce</span></p>
+              <a href="https://moriskportfolio.netlify.app/" target="_blank" class="btn"><span>Discover more</span></a>
+            </div>
+          </div>
+          <div style="background-image: url('https://moriskportfolio.netlify.app/img/project5.png')" class="item item2">
+            <div class="item__info">
+              <p class="item__year"><span>2023</span></p>
+              <p class="item__name"><span>Project 5</span></p>
+              <a href="https://moriskportfolio.netlify.app/" target="_blank" class="btn"><span>Discover more</span></a>
+            </div>
+          </div>
+          <div style="background-image: url('https://moriskportfolio.netlify.app/img/project6.png')" class="item item3">
+            <div class="item__info">
+              <p class="item__year"><span>2023</span></p>
+              <p class="item__name"><span>Project 6</span></p>
+              <a href="https://moriskportfolio.netlify.app/" target="_blank" class="btn"><span>Discover more</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="arrow arrow-next"></div>
+        <div class="arrow arrow-prev"></div>
       </div>
     </section>
+    
 
     <section id="contact" class="page">
       <!-- Contact section content -->
@@ -80,6 +98,6 @@
     </section>
   </div>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
