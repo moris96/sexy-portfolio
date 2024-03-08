@@ -1,28 +1,41 @@
-// define all UI variable
-const navToggler = document.querySelector('.nav-toggler');
-const navMenu = document.querySelector('.site-navbar ul');
-const navLinks = document.querySelectorAll('.site-navbar a');
+const pages = document.querySelectorAll('.page');
+const navLinks = document.querySelectorAll('.nav-link');
+const hamburger = document.querySelector('.hamburger');
+const navLinksContainer = document.querySelector('.nav-links');
 
-// load all event listners
-allEventListners();
+function showPage(pageId) {
+  pages.forEach(page => {
+    page.classList.remove('active');
+  });
 
-// functions of all event listners
-function allEventListners() {
-  // toggler icon click event
-  navToggler.addEventListener('click', togglerClick);
-  // nav links click event
-  navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+
+  const activePage = document.querySelector(`#${pageId}`);
+  activePage.classList.add('active');
+
+  const activeLink = document.querySelector(`a[href="#${pageId}"]`);
+  activeLink.classList.add('active');
 }
 
-// togglerClick function
-function togglerClick() {
-  navToggler.classList.toggle('toggler-open');
-  navMenu.classList.toggle('open');
-}
+navLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const pageId = e.target.getAttribute('href').slice(1);
+    showPage(pageId);
+    navLinksContainer.classList.remove('active');
+  });
+});
 
-// navLinkClick function
-function navLinkClick() {
-  if(navMenu.classList.contains('open')) {
-    navToggler.click();
+hamburger.addEventListener('click', () => {
+  navLinksContainer.classList.toggle('active');
+});
+
+window.addEventListener('click', e => {
+  if (!e.target.matches('.nav-link') && !e.target.matches('.hamburger')) {
+    navLinksContainer.classList.remove('active');
   }
-}
+});
+
+showPage('home'); // Show the home page by default

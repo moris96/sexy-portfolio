@@ -1,168 +1,141 @@
-/* default css start */
-*{
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
-body{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-}
-.container {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-.header-area {
-  background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)),
-  url(https://images.unsplash.com/photo-1528353518104-dbd48bee7bc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80);
-  background-position: center center;
-  background-size: cover;
-}
-/* default css end */
 
-
-/* navbar regular css start */
-.navbar-area {
-  background: rgba(0,0,0,.6);
-  border-bottom: 1px solid #000;
-}
-.site-navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #333;
+  padding: 10px;
 }
-a.site-logo {
-  font-size: 26px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #fff;
+
+.logo a {
+  color: white;
   text-decoration: none;
+  font-weight: bold;
 }
-.site-navbar ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+
+.nav-links {
   display: flex;
 }
-.site-navbar ul li a {
-  color: #fff;
-  padding: 20px;
-  display: block;
+
+.nav-link {
+  color: white;
   text-decoration: none;
-  text-transform: uppercase;
+  padding: 10px;
+  transition: background-color 0.3s;
 }
-.site-navbar ul li a:hover {
-  background: rgba(255,255,255,.1);
+
+.nav-link.active {
+  background-color: #555;
 }
-/* navbar regular css end */
 
+.nav-link:hover {
+  background-color: #555;
+}
 
-/* nav-toggler css start */
-.nav-toggler {
-  border: 3px solid #fff;
-  padding: 5px;
-  background-color: transparent;
-  cursor: pointer;
-  height: 39px;
+.hamburger {
   display: none;
+  cursor: pointer;
 }
-.nav-toggler span, 
-.nav-toggler span:before, 
-.nav-toggler span:after {
-  width: 28px;
+
+.line {
+  width: 25px;
   height: 3px;
-  background-color: #fff;
-  display: block;
-  transition: .3s;
+  background-color: white;
+  margin: 5px;
 }
-.nav-toggler span:before {
-  content: '';
-  transform: translateY(-9px);
-}
-.nav-toggler span:after {
-  content: '';
-  transform: translateY(6px);
-}
-.nav-toggler.toggler-open span {
-  background-color: transparent;
-}
-.nav-toggler.toggler-open span:before {
-  transform: translateY(0px) rotate(45deg);
-}
-.nav-toggler.toggler-open span:after {
-  transform: translateY(-3px) rotate(-45deg);
-}
-/* nav-toggler css start */
 
+.container {
+  position: relative;
+  height: calc(100vh - 60px); /* Adjust based on navbar height */
+  overflow: hidden;
+}
 
-/* intro-area css start */
-.intro-area {
-  height: calc(100vh - 61px);
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s, transform 0.5s;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.project {
   display: flex;
   align-items: center;
-  text-align: center;
-  color: #fff;
+  margin-bottom: 20px;
 }
-.intro-area h2 {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 50px;
-  margin-bottom: 25px;
-}
-.intro-area p {
-  font-size: 18px;
-}
-/* intro-area css end */
 
+.project img {
+  max-width: 200px;
+  margin-right: 20px;
+}
 
-/* mobile breakpoint start */
-@media screen and (max-width: 767px) {
-  .container {
-    max-width: 720px;
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1;
   }
-  /* navbar css for mobile start */
-  .nav-toggler{
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .hamburger {
     display: block;
   }
-  .site-navbar {
-    min-height: 60px;
+
+  .nav-links.active {
+    display: flex;
   }
-  .site-navbar ul {
-    position: absolute;
-    width: 100%;
-    height: calc(100vh - 60px);
-    left: 0;
-    top: 60px;
+
+  .project {
     flex-direction: column;
-    align-items: center;
-    border-top: 1px solid #444;
-    background-color: rgba(0,0,0,.75);
-    max-height: 0;
-    overflow: hidden;
-    transition: .3s;
+    align-items: flex-start;
   }
-  .site-navbar ul li {
-    width: 100%;
-    text-align: center;
+
+  .project img {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-  .site-navbar ul li a {
-    padding: 25px;
-  }
-  .site-navbar ul li a:hover {
-    background-color: rgba(255,255,255,.1);
-  }
-  .site-navbar ul.open {
-    max-height: 100vh;
-    overflow: visible;
-  }
-  .intro-area h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-  }  
-  /* navbar css for mobile end */
 }
-/* mobile breakpoint end */

@@ -1,53 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Moris Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <a href="#home">Your Logo</a>
+      </div>
+      <div class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </nav>
 
-    <!-- navbar -->
-    <!-- <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Blog</a>
-        <a href="#">Portfolio</a>
-        <a href="#">Contact</a>
-        <div class="animation start-home"></div>
-    </nav> -->
+  <div class="container">
+    <section id="home" class="page active">
+      <!-- Home section content -->
+      <h1>Welcome to my Portfolio</h1>
+      <p>I am a skilled web developer with a passion for creating beautiful and functional websites.</p>
+    </section>
 
-    <header class="header-area">
-      <!-- site-navbar start -->
-      <div class="navbar-area">
-        <div class="container">
-          <nav class="site-navbar">
-            <!-- site logo -->
-            <!-- <a href="#home" class="site-logo">logo</a> -->
-    
-            <!-- site menu/nav -->
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Skills</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-    
-            <!-- nav-toggler for mobile version only -->
-            <button class="nav-toggler">
-              <span></span>
-            </button>
-          </nav>
-        </div>
-      </div><!-- navbar-area end -->
+    <section id="about" class="page">
+      <!-- About section content -->
+      <h2>About Me</h2>
+      <p>I am a dedicated web developer with several years of experience in building responsive and user-friendly websites. I have a strong understanding of HTML, CSS, and JavaScript, and I am always eager to learn new technologies and best practices.</p>
+    </section>
 
+    <section id="skills" class="page">
+      <!-- Skills section content -->
+      <h2>Skills</h2>
+      <ul>
+        <li><i class="fab fa-html5"></i> HTML5</li>
+        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+        <li><i class="fab fa-js"></i> JavaScript</li>
+        <li><i class="fab fa-react"></i> React</li>
+        <li><i class="fab fa-node"></i> Node.js</li>
+      </ul>
+    </section>
 
+    <section id="projects" class="page">
+      <!-- Projects section content -->
+      <h2>Projects</h2>
+      <div class="project">
+        <img src="project1.jpg" alt="Project 1">
+        <h3>Project 1</h3>
+        <p>Description of Project 1.</p>
+      </div>
+      <div class="project">
+        <img src="project2.jpg" alt="Project 2">
+        <h3>Project 2</h3>
+        <p>Description of Project 2.</p>
+      </div>
+    </section>
 
-    
-	<script src="app.js"></script>
+    <section id="contact" class="page">
+      <!-- Contact section content -->
+      <h2>Contact</h2>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
 
-  </body>
+  <script src="app.js"></script>
+</body>
 </html>
